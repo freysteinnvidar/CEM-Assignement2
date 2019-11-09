@@ -19,8 +19,9 @@ function cap = capac_matrix_2(a, b, c, d, n,plot)
 
 
 % Make grids such that point land on inner and outer conductor
+format long
 h  = 0.5*c/n;                % Grid size
-r = ceil(0.5*a/h);
+r = round(0.5*a/h);
 h = 0.5*a/r;            %assuming a = b
 na = round(0.5*a/h);         % Number of segments on 'a'
 qt = mod(c,h);
@@ -34,13 +35,15 @@ if qt ~= 0
         d = d-qt;
     end
 end
+n = (0.5*c/h);
+n = round(n);
 x  = linspace(0,0.5*c,n+1);  % Grid points along x-axis
 n;
 m = n;
 % m  = round(0.5*d/h);       % Number of segments on 'd'
 h;
 mb = round(0.5*b/h);         % Number of segments on 'b'
-y  = linspace(0,0.5*d,m+1);  % Grid points along y-axis
+y  = linspace(0,0.5*d+h,m+1);  % Grid points along y-axis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Initialize potential and mask array
